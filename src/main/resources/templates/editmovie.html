@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+	<title>Edit Steve McQueen film</title>
+	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+	<link type="text/css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+</head>
+<body>
+	<div class="container">
+	<h2>Edit film</h2>
+	<div class="col-md-4">
+	<form th:object="${movie}" th:action="@{../save}" action="#" method="post">
+	<input type="hidden" th:field="*{id}" class="form-control"/>
+		<label for="title">Film</label>
+	<input type="text" id="title" th:field="*{title}" class="form-control"/>
+			<div style="clear: both; display: block; height: 10px;"></div>						
+		<label for="genres">Genre</label>
+		<select id="genres" th:field="*{genre}" class="form-control">
+		<option th:each="genre: ${genres}" th:value="${genre.genreid}" th:text="${genre.name}"></option>
+		</select>
+	<div style="clear: both; display: black; height: 10px;"></div>
+		<label for="year">Year</label>
+	<input type="number" id="year" th:field="*{year}" class="form-control"/>
+	<div style="clear: both; display: black; height: 10px;"></div>
+		<label for="director">Director</label>
+	<input type="text" id="director" th:field="*{director}" class="form-control"/>
+	<div style="clear: both; display: black; height: 10px;"></div>
+		<label for="runtime">Runtime (min)</label>
+	<input type="number" id="runtime" th:field="*{runtime}" class="form-control"/>
+	<div style="clear: both; display: black; height: 10px;"></div>
+		<label for="role">Role</label>
+	<input type="text" id="role" th:field="*{role}" class="form-control"/>
+	<div style="clear: both; display: black; height: 10px;"></div>
+		<input type="submit" class="btn btn-success" value="Save"></input>
+	</form>
+	</div>
+	</div>
+</body>
+</html>
